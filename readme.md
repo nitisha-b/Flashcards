@@ -1,13 +1,13 @@
-## Flashcards
+# Flashcards
 
 ## Lab 1
 
 ### App Description
-This is a simple iOS Flashcard app that shows the question first, and when you tap on the question, it will reveal the answer. 
+This is a simple iOS Flashcard app that asks you a question. You can either tap on the flashcard to reveal the answer or select the right answer from the multiple choice question given to you. 
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/5v8HT4CQwK.gif" width=200><br>
+<img src="http://g.recordit.co/m5eukZh4Pz.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
@@ -17,6 +17,6 @@ This is a simple iOS Flashcard app that shows the question first, and when you t
 - [x] Push code to GitHub
 
 ## Optional
-- [ ] Toggle the flashcard between the question side and the answer side
-- [ ] Style the question and answer side of the card to better distinguish between the two sides
-- [ ] Add selectable multiple choice answers beneath the card
+- [x] Toggle the flashcard between the question side and the answer side
+- [x] Style the question and answer side of the card to better distinguish between the two sides
+- [x] Add selectable multiple choice answers beneath the card
