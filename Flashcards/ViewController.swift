@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
     
+    @IBOutlet weak var addButton: UIButton!
+    
+    // Second button is the right answer on the first page
     var right: Int = 2
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
@@ -110,21 +113,25 @@ class ViewController: UIViewController {
         answerLabel.clipsToBounds = true
         questionLabel.clipsToBounds = true
         
+        card.layer.cornerRadius = 20.0
         card.layer.shadowRadius = 15.0
         card.layer.shadowOpacity = 0.2
         
-        btn1.layer.cornerRadius = 20.0
-        btn1.layer.borderWidth = 3.0
-        btn1.layer.borderColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        btn1.layer.cornerRadius = 15.0
+        btn1.layer.borderWidth = 1.5
+        btn1.layer.borderColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
         
-        btn2.layer.cornerRadius = 20.0
-        btn2.layer.borderWidth = 3.0
-        btn2.layer.borderColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        btn2.layer.cornerRadius = 15.0
+        btn2.layer.borderWidth = 1.5
+        btn2.layer.borderColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
         
-        btn3.layer.cornerRadius = 20.0
-        btn3.layer.borderWidth = 3.0
-        btn3.layer.borderColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        btn3.layer.cornerRadius = 15.0
+        btn3.layer.borderWidth = 1.5
+        btn3.layer.borderColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
         
+//        addButton.layer.cornerRadius = 5.0
+//        addButton.layer.borderWidth = 1.5
+//        addButton.layer.borderColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
