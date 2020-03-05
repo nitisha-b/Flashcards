@@ -66,7 +66,12 @@ class ViewController: UIViewController {
         btn2.setTitle(answer2, for: .normal)
         btn3.setTitle(answer3, for: .normal)
         
-        right = Int(rightAnswer)!
+//        if(rightAnswer == ""){
+//            right = 2
+//        }
+//        else{
+            right = Int(rightAnswer)!
+//        }
         
     }
     

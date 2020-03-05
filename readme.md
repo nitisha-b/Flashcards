@@ -3,11 +3,13 @@
 ## Lab 2
 
 ### App Description
-The app is now modified to allow the user to make their own flashcards by clicking a button and typing out the question and answers. 
+The app is now modified to allow the user to make their own flashcards by clicking a button and typing out the question and answers. It shows an alert message when any of the text fields are left empty.  
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/ekRem8BNzl.gif" width=200><br>
+
+<img src="http://g.recordit.co/p8iJgAnqH5.gif" width=200><br>
+<!--- <img src="http://g.recordit.co/ekRem8BNzl.gif" width=200><br> -->
 
 ## Required
 - [x] User can open the creation screen
@@ -16,9 +18,9 @@ The app is now modified to allow the user to make their own flashcards by clicki
 - [x] Push code to GitHub
 
 ## Optional
-- [ ] User gets an error if they try to create a new flashcard with no question or answer
+- [x] User gets an error if they try to create a new flashcard with no question or answer
 - [ ] User can edit existing flashcard
-- [ ] User can add multiple choice answers in the creation screen
+- [x] User can add multiple choice answers in the creation screen
 
 ## Lab 1
 

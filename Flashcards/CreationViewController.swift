@@ -29,9 +29,32 @@ class CreationViewController: UIViewController {
     }
     
     @IBAction func didTapOnDone(_ sender: Any) {
-        flashcardsController.updateFlashcard(question: questionTextField.text!, answer1: answer1.text!, answer2: answer2.text!, answer3: answer3.text!, rightAnswer: rightAnswer.text!)
         
-        dismiss(animated: true)
+        let questionText = questionTextField.text
+        let answer1Text = answer1.text
+        let answer2Text = answer2.text
+        let answer3Text = answer3.text
+        let rightText = rightAnswer.text
+        
+        // Check if the text field are empty
+        if(questionText == nil || answer1Text == nil || answer2Text == nil || answer3Text == nil || rightText == nil || questionText!.isEmpty || answer1Text!.isEmpty || answer2Text!.isEmpty || answer3Text!.isEmpty || rightText!.isEmpty){
+            
+            // Show error
+            let alert = UIAlertController(title: "Missing Text", message: "Please fill out all the text fields", preferredStyle: .alert)
+            
+            // Ignore handler because clicking Ok will dismiss the message
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+        
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
+            
+        else{
+            flashcardsController.updateFlashcard(question: questionText!, answer1: answer1Text!, answer2: answer2Text!, answer3: answer3Text!, rightAnswer: rightText!)
+            
+            dismiss(animated: true)
+        }
+        
     }
     
     /*
