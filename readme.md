@@ -1,9 +1,29 @@
 # Flashcards
 
+## Lab 2
+
+### App Description
+The app is now modified to allow the user to make their own flashcards by clicking a button and typing out the question and answers. 
+
+### App Walk-though
+
+<img src="http://g.recordit.co/ekRem8BNzl.gif" width=200><br>
+
+## Required
+- [x] User can open the creation screen
+- [x] User can cancel out of the creation screen
+- [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
+- [x] Push code to GitHub
+
+## Optional
+- [ ] User gets an error if they try to create a new flashcard with no question or answer
+- [ ] User can edit existing flashcard
+- [ ] User can add multiple choice answers in the creation screen
+
 ## Lab 1
 
 ### App Description
-This is a simple iOS Flashcard app that asks you a question. You can either tap on the flashcard to reveal the answer or select the right answer from the multiple choice question given to you. 
+This is an iOS Flashcard app that asks you a question. You can either tap on the flashcard to reveal the answer or select the right answer from the multiple choice question given to you. 
 
 ### App Walk-though
 
