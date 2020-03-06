@@ -66,13 +66,8 @@ class ViewController: UIViewController {
         btn2.setTitle(answer2, for: .normal)
         btn3.setTitle(answer3, for: .normal)
         
-//        if(rightAnswer == ""){
-//            right = 2
-//        }
-//        else{
-            right = Int(rightAnswer)!
-//        }
-        
+        right = Int(rightAnswer)!
+
     }
     
     /* The buttons are coded to disappear by checking what the right answer is and
@@ -149,6 +144,14 @@ class ViewController: UIViewController {
         
         // Set the flashcardsController property to self
         creationController.flashcardsController = self
+        
+        if segue.identifier == "EditSegue" {
+            creationController.initialQuestion = questionLabel.text
+            creationController.initialAnswer1 = btn1.currentTitle
+            creationController.initialAnswer2 = btn2.currentTitle
+            creationController.initialAnswer3 = btn3.currentTitle
+            creationController.initialRightAnswer = String(right)
+        }
     }
 }
 

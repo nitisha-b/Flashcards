@@ -35,6 +35,14 @@
                                         <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iA-LB-kN4">
+                                        <rect key="frame" x="305" y="233" width="41" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="✏️"/>
+                                        <connections>
+                                            <segue destination="GPp-Un-Tfz" kind="show" identifier="EditSegue" id="EcF-Kb-lne"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <gestureRecognizers/>
@@ -142,7 +150,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Right Answer (number)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccb-g6-VY4">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Right Answer (number 1, 2 or 3)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccb-g6-VY4">
                                 <rect key="frame" x="31" y="495" width="353" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -165,11 +173,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="answer1" destination="l7N-io-dvu" id="njY-UV-Zjq"/>
-                        <outlet property="answer2" destination="2jP-dz-si0" id="J7S-uE-WnF"/>
-                        <outlet property="answer3" destination="q73-Mf-ayF" id="jmT-YA-CnT"/>
-                        <outlet property="questionTextField" destination="Wjn-AH-wmC" id="8GY-PP-K8R"/>
-                        <outlet property="rightAnswer" destination="ccb-g6-VY4" id="UkK-A6-IJ5"/>
+                        <outlet property="answer1" destination="l7N-io-dvu" id="F4g-C0-fZ9"/>
+                        <outlet property="answer2" destination="2jP-dz-si0" id="dCV-OE-eOD"/>
+                        <outlet property="answer3" destination="q73-Mf-ayF" id="rEW-Td-w8p"/>
+                        <outlet property="questionTextField" destination="Wjn-AH-wmC" id="oD4-nO-MkO"/>
+                        <outlet property="rightAnswer" destination="ccb-g6-VY4" id="zp2-6C-fBQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rmg-yi-XUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,6 +189,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GPp-Un-Tfz" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="j3T-yC-Bf8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x0Y-Dy-3oP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -195,4 +204,7 @@
             <point key="canvasLocation" x="928.98550724637687" y="111.83035714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EcF-Kb-lne"/>
+    </inferredMetricsTieBreakers>
 </document>

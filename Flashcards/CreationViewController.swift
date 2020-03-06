@@ -10,9 +10,15 @@ import UIKit
 
 class CreationViewController: UIViewController {
 
-    var flashcardsController: ViewController!
-    @IBOutlet weak var questionTextField: UITextField!
+    var initialQuestion: String?
+    var initialAnswer1: String?
+    var initialAnswer2: String?
+    var initialAnswer3: String?
+    var initialRightAnswer: String?
     
+    var flashcardsController: ViewController!
+   
+    @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answer1: UITextField!
     @IBOutlet weak var answer2: UITextField!
     @IBOutlet weak var answer3: UITextField!
@@ -25,7 +31,11 @@ class CreationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        questionTextField.text = initialQuestion
+        answer1.text = initialAnswer1
+        answer2.text = initialAnswer2
+        answer3.text = initialAnswer3
+        rightAnswer.text = initialRightAnswer
     }
     
     @IBAction func didTapOnDone(_ sender: Any) {
