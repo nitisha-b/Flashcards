@@ -3,6 +3,7 @@
 ## Lab 3
 
 ### App Description
+
 The app is now able to go through saved flashcards with "Next" and "Prev" buttons, and save the flashcards to the disk when exiting the app and again read from the disk when re-opening the app.
 
 ### App Walk-though
