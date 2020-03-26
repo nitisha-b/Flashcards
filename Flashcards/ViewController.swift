@@ -39,12 +39,66 @@ class ViewController: UIViewController {
     var right: Int = 2
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
+        flipFlashcard()
+    }
     
-        if(questionLabel.isHidden){
-            questionLabel.isHidden = false
+    func flipFlashcard(){
+        
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            if(self.questionLabel.isHidden){
+                self.questionLabel.isHidden = false
+                   }
+            else{
+                self.questionLabel.isHidden = true
+            }
+        })
+    }
+    
+    func animateCardOut(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }, completion: { finished in
+            
+            // Update the labels
+            self.updateLabels()
+               
+            // Update the buttons
+            self.updateNextPrevButtons()
+            
+            self.animateCardIn()
+        })
+    }
+    
+    func animateCardIn(){
+       
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        
+        UIView.animate(withDuration: 0.3){
+            self.card.transform = CGAffineTransform.identity
         }
-        else{
-            questionLabel.isHidden = true
+        
+    }
+    
+    func animateCardOutPrev(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }, completion: { finished in
+            
+            // Update the labels
+            self.updateLabels()
+               
+            // Update the buttons
+            self.updateNextPrevButtons()
+            
+            self.animateCardInPrev()
+        })
+    }
+    
+    func animateCardInPrev(){
+        card.transform = CGAffineTransform.identity.translatedBy(x: -300, y: 0.0)
+        
+        UIView.animate(withDuration: 0.3){
+            self.card.transform = CGAffineTransform.identity
         }
     }
     
@@ -53,29 +107,27 @@ class ViewController: UIViewController {
         // Decrease the index
         currentIndex = currentIndex - 1
         
-        // Update the labels
-        updateLabels()
-        
-        // Update the next/prev buttons
-        updateNextPrevButtons()
+        animateCardOutPrev()
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
+        animateCardOut()
         
         // Increase the index
         currentIndex = currentIndex + 1
-        
-        // Update the labels
-        updateLabels()
-        
-        // Update the buttons
-        updateNextPrevButtons()
     }
     
     func updateLabels(){
         let currentFlashcard = flashcards[currentIndex]
         
         questionLabel.text = currentFlashcard.question
+        
+        btn1.isHidden = false
+        btn2.isHidden = false
+        btn3.isHidden = false
+        questionLabel.isHidden = false
+        
+        right = Int(currentFlashcard.rightAnswer)!
         
         switch (Int(currentFlashcard.rightAnswer)) {
         
@@ -129,10 +181,10 @@ class ViewController: UIViewController {
         btn3.isHidden = false
         questionLabel.isHidden = false
         
-         right = Int(rightAnswer)!
+        right = Int(rightAnswer)!
         
         let flashcard = Flashcard(question: question, answer1: answer1, answer2: answer2, answer3: answer3, rightAnswer: rightAnswer)
-            
+        
         // Adding flashcard in the flashcards array
         flashcards.append(flashcard)
         
@@ -200,7 +252,7 @@ class ViewController: UIViewController {
              updateLabels()
             updateNextPrevButtons()
         }
-
+        
         // Style Cards
         answerLabel.layer.cornerRadius = 20.0
         questionLabel.layer.cornerRadius = 20.0
