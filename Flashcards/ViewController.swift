@@ -117,6 +117,41 @@ class ViewController: UIViewController {
         currentIndex = currentIndex + 1
     }
     
+    
+    @IBAction func didTapDelete(_ sender: Any) {
+    
+    
+        // Show confirmation
+        let alert = UIAlertController(title: "Delete Flashcard", message: "Are you sure you want to delete this flashcard?", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.deleteCurrentFlashcard()
+        }
+        alert.addAction(deleteAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func deleteCurrentFlashcard(){
+        flashcards.remove(at: currentIndex)
+        
+        if (currentIndex == 0){
+            currentIndex = 0
+        }
+        
+        else if (currentIndex > flashcards.count - 1) {
+            currentIndex = currentIndex - 1
+        }
+      
+        updateNextPrevButtons()
+        updateLabels()
+        saveAllFlashcardsToDisk()
+        
+    }
+    
     func updateLabels(){
         let currentFlashcard = flashcards[currentIndex]
         
@@ -173,7 +208,7 @@ class ViewController: UIViewController {
      * It checks which answer the user has marked as the right one and changes the answer label accordingly.
      * It also changes the text in the buttons to the new answers in the order they were entered.
      */
-    func updateFlashcard(question: String, answer1: String, answer2: String, answer3: String, rightAnswer: String) {
+    func updateFlashcard(question: String, answer1: String, answer2: String, answer3: String, rightAnswer: String, isExisting: Bool) {
         
         // Unhide buttons and reset the question label to be on top
         btn1.isHidden = false
@@ -185,25 +220,32 @@ class ViewController: UIViewController {
         
         let flashcard = Flashcard(question: question, answer1: answer1, answer2: answer2, answer3: answer3, rightAnswer: rightAnswer)
         
-        // Adding flashcard in the flashcards array
-        flashcards.append(flashcard)
+        if isExisting {
+            flashcards[currentIndex] = flashcard
+        }
+            
+        else{
         
-        // Logging to the console
-        print("Added new Flashcard")
-        print("We now have \(flashcards.count) flashcards")
-        
-        // Update current index
-        currentIndex = flashcards.count - 1
-        print("Our current index is \(currentIndex)")
-        
-        // Update the next/prev buttons
-        updateNextPrevButtons()
-        
-        // Update the labels
-        updateLabels()
-        
-        // Save new flashcards to disk
-        saveAllFlashcardsToDisk()
+            // Adding flashcard in the flashcards array
+            flashcards.append(flashcard)
+            
+            // Logging to the console
+            print("Added new Flashcard")
+            print("We now have \(flashcards.count) flashcards")
+            
+            // Update current index
+            currentIndex = flashcards.count - 1
+            print("Our current index is \(currentIndex)")
+            
+            // Update the next/prev buttons
+            updateNextPrevButtons()
+            
+            // Update the labels
+            updateLabels()
+            
+            // Save new flashcards to disk
+            saveAllFlashcardsToDisk()
+        }
     }
     
     /* The buttons are coded to disappear by checking what the right answer is and
@@ -246,7 +288,7 @@ class ViewController: UIViewController {
         
         // Add the initial flashcard only if the array is empty
         if flashcards.count == 0{
-            updateFlashcard(question: "What does the fox say?", answer1: "Woof Woof", answer2: "Ring-ding-ding-dingeringeding", answer3: "Roar", rightAnswer: "2")
+            updateFlashcard(question: "What does the fox say?", answer1: "Woof Woof", answer2: "Ring-ding-ding-dingeringeding", answer3: "Roar", rightAnswer: "2", isExisting: false)
         }
         else{
              updateLabels()

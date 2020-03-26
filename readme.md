@@ -36,8 +36,8 @@ The app is now able to go through saved flashcards with "Next" and "Prev" button
 - [x] Push code to GitHub
 
 ## Optional
-- [ ] User can delete a flashcard
-- [ ] User can edit existing flashcard
+- [x] User can delete a flashcard
+- [x] User can edit existing flashcard
 - [x] User can store multiple choice questions
 
 ## Lab 2
