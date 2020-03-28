@@ -281,6 +281,39 @@ class ViewController: UIViewController {
         }
     }
     
+    /* Animate the card and buttons to bounce to screen when the app is started */
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // Start with flashcard invisible and smaller in size
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        btn1.alpha = 0.0
+        btn1.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        btn2.alpha = 0.0
+        btn2.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        btn3.alpha = 0.0
+        btn3.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.card.alpha = 1
+            self.card.transform = CGAffineTransform.identity
+            
+            self.btn1.alpha = 1
+            self.btn1.transform = CGAffineTransform.identity
+            
+            self.btn2.alpha = 1
+            self.btn2.transform = CGAffineTransform.identity
+            
+            self.btn3.alpha = 1
+            self.btn3.transform = CGAffineTransform.identity
+        })
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
